@@ -46,15 +46,21 @@ $(document).ready(function() {
   };
 
   var questionGenerator = function () {
+    var maxNumber = parseInt($('#range-input').val(), 10);
     var question = {};
-    var num1 = randomNumberGenerator(10);
-    var num2 = randomNumberGenerator(10);
+    var num1 = randomNumberGenerator(maxNumber);
+    var num2 = randomNumberGenerator(maxNumber);
 
     question.answer = num1 + num2;
     question.equation = String(num1) + " + " + String(num2);
 
     return question;
   };
+
+  $('#range-input').on('input', function () {
+    $('#range-value').text($(this).val());
+    renderNewQuestion();
+  })
 
   var renderNewQuestion = function () {
     currentQuestion = questionGenerator();

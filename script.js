@@ -24,6 +24,7 @@ $(document).ready(function() {
   };
 
   var startGame = function () {
+    $('#initial-time').hide();
     if (!interval) {
       if (timeLeft === 0) {
         updateTimeLeft(10);
